@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes                      from 'prop-types';
 import spinner from './spinner.gif';
 
 class Spinner extends Component {
@@ -11,7 +10,5 @@ class Spinner extends Component {
         );
     }
 }
-
-Spinner.propTypes = {};
 
 export default Spinner;

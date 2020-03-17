@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes            from 'prop-types';
+import React  from 'react';
 import { Link }             from 'react-router-dom';
 
-const Navbar = ( props ) => {
+const Navbar = () => {
     return (
         <nav className = 'navbar bg-primary'>
             <h1>
@@ -20,7 +19,5 @@ const Navbar = ( props ) => {
         </nav>
     );
 };
-
-Navbar.propTypes = {};
 
 export default Navbar;

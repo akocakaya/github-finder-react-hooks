@@ -17,6 +17,7 @@ class App extends Component {
         users   : [],
         user    : {},
         alert   : null,
+        repos   : [],
     };
 
     async componentDidMount() {
@@ -53,7 +54,20 @@ class App extends Component {
         this.setState(
             {
                 loading : false,
-                user   : res.data,
+                user    : res.data,
+            },
+        );
+    };
+
+    getUserRepos = async ( username ) => {
+        this.setState( { loading : true } );
+
+        let res = await axios.get( `https://api.github.com/users/${ username }/repos?per_page=5&sort=created:asc` );
+
+        this.setState(
+            {
+                loading : false,
+                repos   : res.data,
             },
         );
     };
@@ -118,7 +132,13 @@ class App extends Component {
                                 exact
                                 path = '/user/:login'
                                 render = { props => (
-                                    <User {...props} getUser={this.getUser} user={this.state.user} loading={this.state.loading} />
+                                    <User { ...props }
+                                          getUser = { this.getUser }
+                                          user = { this.state.user }
+                                          loading = { this.state.loading }
+                                          getUserRepos = { this.getUserRepos }
+                                          repos = { this.state.repos }
+                                    />
                                 ) }
                             />
                         </Switch>
