@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e04a7cb7-5853-4472-8808-0e9b15884027" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/repos/repoItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/repos/repos.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/spinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/spinner.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/users/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/users/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/users/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +72,7 @@
       <updated>1584370978689</updated>
       <workItem from="1584370979974" duration="2550000" />
       <workItem from="1584373661920" duration="11485000" />
-      <workItem from="1584464089312" duration="10151000" />
+      <workItem from="1584464089312" duration="11303000" />
     </task>
     <servers />
   </component>

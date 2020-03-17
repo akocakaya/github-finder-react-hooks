@@ -12,7 +12,7 @@ const Search = ( { searchUsers, clearUsers, setAlert } ) => {
     const onSubmit = ( e ) => {
         e.preventDefault();
 
-        if (this.state.text === '') {
+        if (text === '') {
             setAlert( 'Please enter something', 'light' );
         } else {
             searchUsers( text );
