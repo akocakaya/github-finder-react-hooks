@@ -1,15 +1,15 @@
-import React, { useEffect, Fragment } from 'react';
+import PropTypes                      from 'prop-types';
+import React, { Fragment, useEffect } from 'react';
 import { Link }                       from 'react-router-dom';
 import Spinner                        from '../layout/spinner';
-import PropTypes                      from 'prop-types';
 import Repos                          from '../repos/repos';
 
-const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
+const User = ( { user, loading, getUser, getUserRepos, repos, match } ) => {
 
-    useEffect(() => {
+    useEffect( () => {
         getUser( match.params.login );
         getUserRepos( match.params.login );
-    }, []);
+    }, [] );
 
     const {
               name,

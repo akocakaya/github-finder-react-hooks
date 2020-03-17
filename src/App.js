@@ -1,15 +1,15 @@
-import React, { Component, Fragment }             from 'react';
 import axios                                      from 'axios';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { Component, Fragment }             from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import './App.css';
 
 import Alert  from './components/layout/alert';
 import Navbar from './components/layout/navbar';
-import Users  from './components/users/users';
 import About  from './components/pages/about';
 import Search from './components/users/search';
 import User   from './components/users/user';
-
-import './App.css';
+import Users  from './components/users/users';
 
 class App extends Component {
     state = {
