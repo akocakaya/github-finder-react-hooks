@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
-import axios                from 'axios';
-import './App.css';
-import Alert                from './components/layout/alert';
+import React, { Component, Fragment }             from 'react';
+import axios                                      from 'axios';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import Alert  from './components/layout/alert';
 import Navbar from './components/layout/navbar';
 import Users  from './components/users/users';
+import About  from './components/pages/about';
 import Search from './components/users/search';
+import User   from './components/users/user';
+
+import './App.css';
 
 class App extends Component {
     state = {
         loading : false,
         users   : [],
+        user    : {},
         alert   : null,
     };
 
@@ -40,6 +45,19 @@ class App extends Component {
         );
     };
 
+    getUser = async ( username ) => {
+        this.setState( { loading : true } );
+
+        let res = await axios.get( `https://api.github.com/users/${ username }` );
+
+        this.setState(
+            {
+                loading : false,
+                user   : res.data,
+            },
+        );
+    };
+
     clearUsers = async () => {
         this.setState( { loading : true } );
 
@@ -61,26 +79,52 @@ class App extends Component {
             },
         );
 
-        setTimeout(() => this.setState({alert : null}), 5000);
+        setTimeout( () => this.setState( { alert : null } ), 5000 );
     };
 
     render() {
         return (
-            <div className = 'App'>
-                <Navbar />
-                <div className = { 'container' }>
-                    <Alert alert = { this.state.alert } />
-                    <Search
-                        searchUsers = { this.searchUsers }
-                        clearUsers = { this.clearUsers }
-                        setAlert = { this.setAlert }
-                    />
-                    <Users
-                        loading = { this.state.loading }
-                        users = { this.state.users }
-                    />
+            <Router>
+                <div className = 'App'>
+                    <Navbar />
+                    <div className = { 'container' }>
+                        <Alert alert = { this.state.alert } />
+                        <Switch>
+                            <Route
+                                exact
+                                path = '/'
+                                render = { props => (
+                                    <Fragment>
+                                        <Search
+                                            searchUsers = { this.searchUsers }
+                                            clearUsers = { this.clearUsers }
+                                            setAlert = { this.setAlert }
+                                        />
+                                        <Users
+                                            loading = { this.state.loading }
+                                            users = { this.state.users }
+                                        />
+                                    </Fragment>
+                                ) }
+                            />
+                            <Route
+                                exact
+                                path = '/about'
+                                render = { props => (
+                                    <About />
+                                ) }
+                            />
+                            <Route
+                                exact
+                                path = '/user/:login'
+                                render = { props => (
+                                    <User {...props} getUser={this.getUser} user={this.state.user} loading={this.state.loading} />
+                                ) }
+                            />
+                        </Switch>
+                    </div>
                 </div>
-            </div>
+            </Router>
         );
     }
 }

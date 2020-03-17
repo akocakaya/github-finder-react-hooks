@@ -424,3 +424,7 @@ table th {
   margin: auto;
   display: block;
 }
+
+.img-lrg {
+  width: 150px;
+}
