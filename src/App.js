@@ -39,13 +39,6 @@ const App = () => {
         setLoading( false );
     };
 
-    const clearUsers = async () => {
-        setLoading( true );
-
-        setUsers( [] );
-        setLoading( false );
-    };
-
     const showAlert = ( msg, type ) => {
         setAlert( {
                       msg,
@@ -69,7 +62,6 @@ const App = () => {
                                 render = { props => (
                                     <Fragment>
                                         <Search
-                                            clearUsers = { clearUsers }
                                             setAlert = { showAlert }
                                         />
                                         <Users />
