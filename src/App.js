@@ -21,15 +21,6 @@ const App = () => {
     const [ alert, setAlert ]     = useState( null );
     const [ repos, setRepos ]     = useState( [] );
 
-    const getUser = async ( username ) => {
-        setLoading( true );
-
-        let res = await axios.get( `https://api.github.com/users/${ username }` );
-
-        setUser( res.data );
-        setLoading( false );
-    };
-
     const getUserRepos = async ( username ) => {
         setLoading( true );
 
@@ -80,7 +71,6 @@ const App = () => {
                                 path = '/user/:login'
                                 render = { props => (
                                     <User { ...props }
-                                          getUser = { getUser }
                                           user = { user }
                                           loading = { loading }
                                           getUserRepos = { getUserRepos }
